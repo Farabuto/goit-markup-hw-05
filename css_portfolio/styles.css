@@ -91,6 +91,7 @@ header{
   letter-spacing: 0.02em;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav:focus,
 .site-nav:hover,
@@ -100,6 +101,18 @@ header{
 .testimony {
   color: var(--accent-color);
   cursor: pointer;
+  position: relative;
+}
+.testimony::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #2196F3;
+  border-radius: 2px;
 }
 .contact-flex {
   margin-left: auto;
@@ -122,6 +135,8 @@ header{
   justify-content: center;
   align-items: center;
   fill: #757575;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact:focus,
 .contact:hover,
@@ -152,6 +167,10 @@ header{
   border-radius: 4px;
   border: var(--accent-color);
   padding: 6px 22px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .aside-nav:focus,
 .aside-nav:hover,
@@ -194,11 +213,40 @@ header{
 }
  .remove-nav {
 display: block;
+transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
  }
 .remove-nav:hover, .remove-nav:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
   0px 4px 4px rgba(0, 0, 0, 0.06),
   1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.remove-nav:hover .remove-top-text,
+.remove-nav:focus .remove-top-text{
+  transform: translateY(0%);
+}
+.remove-nav-text{
+  position: relative;
+  overflow: hidden;
+}
+.remove-top-text{
+  position: absolute;
+  top: 0;
+  background-color:rgba(33, 150, 243, 0.9);
+  color: #FFFFFF;
+  height: 100%;
+  transform:translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  padding-top: 63px;
+  padding-left: 24px;
+  padding-right: 24px;
+
 }
 .border {
   border-right: 1px solid #EEEEEE;
@@ -261,6 +309,7 @@ address{
   font-weight: 400;
   font-size: 14px;
   line-height: 24px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-contact:focus,
 .footer-contact:hover,
@@ -304,6 +353,7 @@ address{
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-soc-link:hover {
   background-color: #2196F3;

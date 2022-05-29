@@ -43,7 +43,7 @@
                     <li class="header-item">
                         <a class="contact remove-underscores" href="tel:+380961111111">
                             <svg class="communication" width="10" height="16" >
-                                <use href="./images/symbol-defs.svg#icon-Vector"></use>
+                                <use href="./images/symbol-defs.svg#icon-Vector1"></use>
                             </svg> +38 096 111 11 11    
                         </a>
                     </li>
@@ -56,9 +56,19 @@
         <section class="padding-bottom">
             <div class="container">
                 <h1 class="title"> ЭФФЕКТИВНЫЕ РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА </h1>
-                <button type="button" class="button order"> Заказать услугу </button>
+                <button type="button" class="button order" data-modal-open> Заказать услугу </button>
             </div>
         </section>
+    <!--  МАДАЛКА ЗАКАЗАТЬ УСЛУГУ    -->
+        <div class="bacdrop is-hidden" data-modal>
+            <div class="madal">
+                <button class="madal-button" data-modal-close >
+                     <svg class="madal-close">
+                        <use href="./images/symbol-defs.svg#icon-Vector"></use> 
+                    <svg/>
+                </button>
+            </div>
+        </div>
     <!--Our advantages ПЕРЕВАГИ-->
         <section class="activity">
             <div class="container">  
@@ -109,12 +119,21 @@
                 <ul class="activity-cou-img remove-dots">
                     <li class="activity-img">
                         <img src="./images/img0.jpg" alt="верстка" width="370" height="294">
+                        <div class="lesson-section-text">
+                            <h3 class="lesson-section-link">Десктопные приложения</h3>
+                        </div>
                     </li>
                     <li class="activity-img">
                         <img src="./images/img1.jpg" alt="дизайн" width="370" height="294">
+                        <div class="lesson-section-text">
+                            <h3 class="lesson-section-link">Мобильные приложения</h3>
+                        </div>
                     </li>
                     <li class="activity-img">
                         <img src="./images/img2.jpg" alt="внешнее оформление" width="370" height="294">
+                        <div class="lesson-section-text">
+                            <h3 class="lesson-section-link">Дизайнерские решения</h3>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -384,6 +403,7 @@
             </div>
         </div>
     </footer>
+    <script src="./js/modal.js"> </script>
 </body>
 
 </html>

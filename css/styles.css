@@ -77,6 +77,7 @@ body{
     letter-spacing: 0.02em;
     padding-top: 32px;
     padding-bottom: 32px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav:focus,
 .site-nav:hover,
@@ -86,6 +87,18 @@ body{
 .testimony{
     color: var(--accent-color);
     cursor: pointer;
+    position: relative;
+}
+.testimony::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #2196F3;
+    border-radius: 2px;
 }
 .contact-flex{
     margin-left: auto;
@@ -108,6 +121,8 @@ body{
     justify-content: center;
     align-items: center;
     fill: #757575;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact:focus,
 .contact:hover,
@@ -122,6 +137,9 @@ body{
 
 /*---РЕШЕНИЯ ДЛЯ ВАШЕГО БИЗНЕСА---*/
 .padding-bottom{
+    margin-left: auto;
+    margin-right: auto;
+
     width: 1600px;
     padding-bottom: 200px;
     padding-top: 200px;
@@ -158,6 +176,9 @@ body{
     margin: 0 auto;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadom 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:focus,
 .button:hover,
@@ -171,6 +192,58 @@ body{
     display: block;
     
 }
+/*---МАДАЛКА ЗАКАЗАТЬ УСЛУГУ---*/
+.bacdrop{
+    position: fixed;
+    top: 0;
+    
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.bacdrop.is-hidden .madal{
+    transform: translate(-50%, -50%) scale(0.3) perspective(600px) rotateX(24deg);
+}
+.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.madal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate(-50%, -50%) scale(1);
+
+    width: 528px;
+    height: 581px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+.madal-button{
+    position:fixed;
+    top: 8px;
+    right: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.madal-close{
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    transform: translate(-50%, -50%);
+   }
+
 /*---ПЕРЕВАГИ---*/
 .activity{
     padding-top: 94px;
@@ -209,8 +282,7 @@ body{
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    align-items: center;
 }
 .activity-soc-icon {
     width: 70px;
@@ -235,9 +307,31 @@ body{
 .activity-img{
     display: block;
     width: 370px;
+    height: 294px;
+    position: relative;
 }
 .activity-img:not(:last-child) {
     margin-right: 30px;
+}
+.lesson-section-text{
+    position: absolute;
+    bottom: 0;
+    background: rgba(47, 48, 58, 0.8);
+    height: 70px;
+    width: 100%;
+}
+.lesson-section-link{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-top: 27px;
+    color: #FFFFFF
+;
 }
 /*---Наша команда---*/
 .items{
@@ -311,16 +405,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .masters-soc-icon {
     fill: #AFB1B8;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .masters-soc-link:hover,
 .masters-soc-link:focus,
 .masters-soc-link:active {
-    background-color: #2196F3;
+    background: #2196F3;
 }
 
 .masters-soc-link:hover .masters-soc-icon {
@@ -355,17 +451,20 @@ body{
     border: 1px solid #AFB1B8;
     box-sizing: border-box;
     border-radius: 4px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .customers-icon {
     width: 106px;
     height: 60px;
     fill: #AFB1B8;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.customers-link:hover {
-    border-color: #2196F3;
+.customers-link:hover,
+.customers-link:focus{
+    border-color: #2196F3
 }
-.customers-link:hover .customers-icon 
-.customers-link:focus .customers-icon{
+.customers-link:hover .customers-icon,
+.customers-link:focus .customers-icon {
     fill: #2196F3;
 }
 /*---F-O-O-T-E-R---*/
@@ -409,6 +508,7 @@ address{
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-contact:focus,
 .footer-contact:hover,
@@ -452,6 +552,7 @@ address{
     justify-content: center;
     align-items: center;
     background: rgba(255, 255, 255, 0.1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-soc-link:hover{
     background-color: #2196F3;
